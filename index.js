@@ -113,12 +113,12 @@ app.get("/api/users/:_id/logs", (req, res) => {
       log = log.slice(0, req.query.limit);
     }
 
-    // Format date in the log array to dateString format
+    // Format date in the log array to the required format "Mon Jan 01 1990"
     log = log.map((session) => ({
       ...session,
       date: new Date(session.date).toDateString(),
     }));
-
+    console.log(log);
     res.json({
       _id: id,
       username: user.username,
